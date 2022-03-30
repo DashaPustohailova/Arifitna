@@ -8,38 +8,17 @@
 
     <fragment
         android:id="@+id/startFragment"
-        android:name="com.example.arifitna.ui.StartFragment"
+        android:name="com.example.arifitna.ui.StartFragment.StartFragment"
         android:label="Главная"
-        tools:layout="@layout/fragment_start" >
-        <action
-            android:id="@+id/action_startFragment_to_statisticsFragment4"
-            app:destination="@id/statisticsFragment" />
-        <action
-            android:id="@+id/action_startFragment_to_settingsFragment4"
-            app:destination="@id/settingsFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_start" />
     <fragment
         android:id="@+id/statisticsFragment"
         android:name="com.example.arifitna.ui.StatisticsFragment"
         android:label="Статистика"
-        tools:layout="@layout/fragment_statistics" >
-        <action
-            android:id="@+id/action_statisticsFragment_to_startFragment2"
-            app:destination="@id/startFragment" />
-        <action
-            android:id="@+id/action_statisticsFragment_to_settingsFragment2"
-            app:destination="@id/settingsFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_statistics" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.arifitna.ui.SettingsFragment"
+        android:name="com.example.arifitna.ui.Settings.SettingsFragment"
         android:label="Настройки"
-        tools:layout="@layout/fragment_settings" >
-        <action
-            android:id="@+id/action_settingsFragment_to_statisticsFragment2"
-            app:destination="@id/statisticsFragment" />
-        <action
-            android:id="@+id/action_settingsFragment_to_startFragment2"
-            app:destination="@id/startFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_settings" />
 </navigation>

@@ -5,9 +5,4 @@
         <item android:title="Статистика" android:id="@id/statisticsFragment"/>
         <item android:title="Настройки" android:id="@id/settingsFragment"/>
     </group>
-    <group android:checkableBehavior="single" android:id="@+id/test">
-        <item android:title="Главная" android:id="@id/startFragment"/>
-        <item android:title="Статистика" android:id="@id/statisticsFragment"/>
-        <item android:title="Настройки" android:id="@id/settingsFragment"/>
-    </group>
 </menu>
