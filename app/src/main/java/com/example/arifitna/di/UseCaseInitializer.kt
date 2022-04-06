@@ -1,7 +1,6 @@
 package com.example.arifitna.di
 
-import com.example.arifitna.use_case.GetPendingIntUseCase
-import com.example.arifitna.use_case.SavePendingIntUseCase
+import com.example.arifitna.use_case.*
 import org.koin.dsl.module
 
 val useCaseModule = module{
@@ -11,5 +10,33 @@ val useCaseModule = module{
 
     factory<GetPendingIntUseCase> {
         GetPendingIntUseCase(get())
+    }
+
+    factory<InitDatabaseUseCase> {
+        InitDatabaseUseCase(get())
+    }
+
+    factory<SignOutUseCase> {
+        SignOutUseCase(get())
+    }
+
+    factory<CreateReportUseCase> {
+        CreateReportUseCase(get())
+    }
+
+    factory<InitBaseDataUseCase> {
+        InitBaseDataUseCase(get())
+    }
+
+    factory<GetCurrentReportUseCase> {
+        GetCurrentReportUseCase(get())
+    }
+
+    factory<GetLastReportUseCase> {
+        GetLastReportUseCase(get())
+    }
+
+    single<AlarmUseCase> {
+        AlarmUseCase(get(),get())
     }
 }

@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/startFragment"
-        android:name="com.example.arifitna.ui.StartFragment.StartFragment"
+        android:name="com.example.arifitna.ui.startFragment.StartFragment"
         android:label="Главная"
         tools:layout="@layout/fragment_start" />
     <fragment
@@ -18,7 +18,12 @@
         tools:layout="@layout/fragment_statistics" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.arifitna.ui.Settings.SettingsFragment"
+        android:name="com.example.arifitna.ui.settings.SettingsFragment"
         android:label="Настройки"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.arifitna.ui.profile.ProfileFragment"
+        android:label="Профиль"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

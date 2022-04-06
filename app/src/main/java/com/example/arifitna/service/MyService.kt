@@ -27,6 +27,11 @@ class MyService : Service(),  CoroutineScope {
         instance = this
     }
 
+    override fun onCreate() {
+        super.onCreate()
+        createNotificationChannel()
+    }
+
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.IO
 
@@ -40,10 +45,6 @@ class MyService : Service(),  CoroutineScope {
         }
     }
 
-    override fun onCreate() {
-        super.onCreate()
-        createNotificationChannel()
-    }
     private fun createNotification() {
         val resultIntent = Intent(this, MainActivity::class.java)
         val resultPendingIntent = PendingIntent.getActivity(

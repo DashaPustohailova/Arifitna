@@ -14,16 +14,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Arifitna">
         <activity
-            android:name=".ui.SignIn.SignInActivity"
-            android:exported="true">
+            android:name=".ui.signIn.SignInActivity"
+            android:exported="true"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.MainActivity">
+            android:name=".ui.MainActivity"
+            android:exported="false"
+            android:noHistory="true">
         </activity>
 
         <service android:name=".service.MyService" />

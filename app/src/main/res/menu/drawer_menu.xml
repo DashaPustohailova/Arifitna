@@ -2,6 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single" android:id="@+id/startFragmentGroup">
         <item android:title="Главная" android:id="@id/startFragment"/>
+        <item android:title="Профиль" android:id="@id/profileFragment"/>
         <item android:title="Статистика" android:id="@id/statisticsFragment"/>
         <item android:title="Настройки" android:id="@id/settingsFragment"/>
     </group>

@@ -18,8 +18,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private lateinit var mNavController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initNavigationGraph()

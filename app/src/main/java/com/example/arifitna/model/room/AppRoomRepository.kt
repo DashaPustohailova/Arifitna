@@ -5,13 +5,13 @@ import com.example.focusstart.model.room.dto.PendingInt
 class AppRoomRepository (private val appRoomDao: AppRoomDao) {
 
     suspend fun allInt(): List<PendingInt> {
-         return  appRoomDao.getAllNotes()
+         return  appRoomDao.getAllPendingInt()
     }
 
     suspend fun insert(PendingInt: PendingInt) {
-        appRoomDao.insert(PendingInt)
+        appRoomDao.insertPendingInt(PendingInt)
     }
     suspend fun delete() {
-        appRoomDao.deleteAll()
+        appRoomDao.deleteAllPendingInt()
     }
 }

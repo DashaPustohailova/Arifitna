@@ -16,20 +16,13 @@ import kotlinx.coroutines.launch
 
 class AlarmUseCase(
     private val context: Context,
-//    private val savePendingInt: SavePendingIntUseCase,
     private val getPendingIntUseCase: GetPendingIntUseCase
 ) {
     private var time: Long? = null
     private val alarmManager =
         context.getSystemService(Context.ALARM_SERVICE) as AlarmManager?
-//    private var randomInt = 0
     private var listRandomInt = mutableListOf<Int>()
 
-//    private fun saveRandomInt(randomInt: Int) {
-//        GlobalScope.launch(Dispatchers.Main) {
-//            savePendingInt.save(randomInt)
-//        }
-//    }
 
     fun setRepetitiveAlarm(timeInMillis: Long, intervalTime: Long = 1L, count: Long = 1L) : List<Int>{
         time = timeInMillis
