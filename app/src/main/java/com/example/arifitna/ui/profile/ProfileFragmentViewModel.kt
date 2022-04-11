@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.arifitna.use_case.AlarmUseCase
 import com.example.arifitna.use_case.GetPendingIntUseCase
+import com.example.arifitna.use_case.GetUserDataUseCase
 import com.example.arifitna.use_case.SignOutUseCase
 import com.example.focusstart.model.room.dto.PendingInt
 import kotlinx.coroutines.launch
@@ -14,15 +15,21 @@ import kotlinx.coroutines.launch
 class ProfileFragmentViewModel(
     private val signOutUseCase: SignOutUseCase,
     private val alarmUseCase: AlarmUseCase,
-    private val getPendingIntUseCase: GetPendingIntUseCase
+    private val getPendingIntUseCase: GetPendingIntUseCase,
+    private val getUserDataUseCase: GetUserDataUseCase
 ): ViewModel() {
 
     private val _pendingIntList = MutableLiveData<List<PendingInt>>()
     var pendingIntList: LiveData<List<PendingInt>> = _pendingIntList
+    val userLiveData = getUserDataUseCase.execute()
 
     fun signOut(){
         signOutUseCase.execute()
         deleteNotification()
+    }
+
+    fun updateUserData(){
+        getUserDataUseCase.execute()
     }
 
     fun loadPendingInt() {

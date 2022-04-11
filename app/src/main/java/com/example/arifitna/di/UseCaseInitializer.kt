@@ -36,6 +36,13 @@ val useCaseModule = module{
         GetLastReportUseCase(get())
     }
 
+    factory<UpdateCountWaterUseCase> {
+        UpdateCountWaterUseCase(get())
+    }
+    factory<GetUserDataUseCase> {
+        GetUserDataUseCase(get())
+    }
+
     single<AlarmUseCase> {
         AlarmUseCase(get(),get())
     }

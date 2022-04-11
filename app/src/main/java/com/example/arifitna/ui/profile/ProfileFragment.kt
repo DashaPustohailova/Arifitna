@@ -3,11 +3,14 @@ package com.example.arifitna.ui.profile
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.Editable
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.arifitna.R
+import com.example.arifitna.extensions.observe
+import com.example.arifitna.model.UserStorage
 import com.example.arifitna.ui.MainActivity
 import com.example.arifitna.ui.signIn.SignInActivity
 import com.example.focusstart.model.room.dto.PendingInt
@@ -26,8 +29,22 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.loadPendingInt()
+        viewModel.updateUserData()
+        setupObservers()
         setupOnClickListener()
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun setupObservers() {
+        observe(viewModel.userLiveData, ::userDataUpdate)
+    }
+
+    private fun userDataUpdate(userStorage: UserStorage?) {
+        userStorage?.let {
+            etName.setText("${userStorage.name}")
+            etWeight.setText("${userStorage.weight}")
+            etNormWater.setText("${userStorage.normWater}")
+        }
     }
 
     private fun setupOnClickListener() {

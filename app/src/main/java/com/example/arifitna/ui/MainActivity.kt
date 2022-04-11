@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     private fun initAppBarConfiguration(){
-        appBarConfiguration = AppBarConfiguration(setOf(R.id.startFragment, R.id.settingsFragment, R.id.statisticsFragment), drawer_layout)
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.startFragment, R.id.settingsFragment, R.id.statisticsFragment, R.id.profileFragment), drawer_layout)
         navigationView.setupWithNavController(mNavController)
         setupActionBarWithNavController(mNavController, appBarConfiguration)
     }

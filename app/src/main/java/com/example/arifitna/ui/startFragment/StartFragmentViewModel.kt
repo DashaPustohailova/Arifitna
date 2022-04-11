@@ -2,20 +2,22 @@ package com.example.arifitna.ui.startFragment
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.example.arifitna.use_case.CreateReportUseCase
-import com.example.arifitna.use_case.GetCurrentReportUseCase
-import com.example.arifitna.use_case.GetLastReportUseCase
-import com.example.arifitna.use_case.InitBaseDataUseCase
+import com.example.arifitna.model.Report
+import com.example.arifitna.use_case.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class StartFragmentViewModel(
     private val createReportUseCase: CreateReportUseCase,
     private val initBaseData: InitBaseDataUseCase,
     private val currentDataReportLiveData: GetCurrentReportUseCase,
-    private val lastReportUseCase: GetLastReportUseCase
+    private val lastReportUseCase: GetLastReportUseCase,
+    private val updateCountWaterUseCase: UpdateCountWaterUseCase
 ) : ViewModel(){
 
     var currentReport = currentDataReportLiveData.execute()
     var lastReport = lastReportUseCase.execute()
+    val sdf = SimpleDateFormat("dd.M.yyyy")
 
     fun createReport(data: Long) {
         if (data == 0L) {
@@ -38,5 +40,9 @@ class StartFragmentViewModel(
 
     fun updateLastReport() {
         lastReport = lastReportUseCase.execute()
+    }
+
+    fun changeCountWater(countWater: String) {
+        updateCountWaterUseCase.execute(Report(sdf.format(Date()),countWater))
     }
 }

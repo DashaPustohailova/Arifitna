@@ -82,16 +82,6 @@ class FirebaseRepository {
             ?.addOnSuccessListener {}
     }
 
-    fun updateReport(report: Report) {
-        val reportNote = hashMapOf<String, Any>()
-        reportNote["date"] =  report.date
-        reportNote["water"] = report.water
-
-        REF_DATABASE?.child("report/$CURRENT_ID/$ID_REPORT")
-            ?.updateChildren(reportNote)
-            ?.addOnSuccessListener {  }
-    }
-
     fun initBaseData(current_id: String) {
         CURRENT_ID = current_id
         REF_DATABASE = FirebaseDatabase.getInstance().reference
@@ -103,5 +93,19 @@ class FirebaseRepository {
 
     fun getLastReport(): LiveData<Report> {
         return LastReportLiveData()
+    }
+
+    fun updateReport(report: Report) {
+        val reportNote = hashMapOf<String, Any>()
+        reportNote["date"] =  report.date
+        reportNote["water"] = report.water
+
+        REF_DATABASE?.child("report/$CURRENT_ID/$ID_REPORT")
+            ?.updateChildren(reportNote)
+            ?.addOnSuccessListener {  }
+    }
+
+    fun getUserData(): LiveData<UserStorage> {
+        return UserDataLiveData()
     }
 }

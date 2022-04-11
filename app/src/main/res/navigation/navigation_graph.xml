@@ -13,7 +13,7 @@
         tools:layout="@layout/fragment_start" />
     <fragment
         android:id="@+id/statisticsFragment"
-        android:name="com.example.arifitna.ui.StatisticsFragment"
+        android:name="com.example.arifitna.ui.statistics.StatisticsFragment"
         android:label="Статистика"
         tools:layout="@layout/fragment_statistics" />
     <fragment

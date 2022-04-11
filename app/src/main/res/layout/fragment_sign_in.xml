@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.signIn.signInFragment.SignInFragment"
-    android:background="@drawable/background">
+    tools:context=".ui.signIn.signInFragment.SignInFragment">
 
     <EditText
         android:id="@+id/input_email"

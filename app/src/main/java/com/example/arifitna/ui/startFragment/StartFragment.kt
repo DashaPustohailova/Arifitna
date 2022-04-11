@@ -38,7 +38,7 @@ class StartFragment : Fragment(R.layout.fragment_start) {
     private fun lastReportObserve(report: Report?) {
         report?.let {
             tvDate.text = "${report.date}"
-            tvWater.setText("${report.water} мл")
+            tvWater.setText("${report.water}")
         }
     }
 
@@ -55,6 +55,7 @@ class StartFragment : Fragment(R.layout.fragment_start) {
 
     private fun setupOnClickListener() {
         btEnter.setOnClickListener {
+            viewModel.changeCountWater(tvWater.text.toString())
         }
     }
 }
