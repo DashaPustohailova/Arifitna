@@ -43,6 +43,9 @@ val useCaseModule = module{
         GetUserDataUseCase(get())
     }
 
+    factory<AllReportUseCase> {
+        AllReportUseCase(get())
+    }
     single<AlarmUseCase> {
         AlarmUseCase(get(),get())
     }

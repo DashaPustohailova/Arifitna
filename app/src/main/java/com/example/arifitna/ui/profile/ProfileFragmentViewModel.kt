@@ -30,6 +30,7 @@ class ProfileFragmentViewModel(
 
     fun updateUserData(){
         getUserDataUseCase.execute()
+        Log.d("stat", userLiveData.value.toString())
     }
 
     fun loadPendingInt() {

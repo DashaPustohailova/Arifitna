@@ -42,6 +42,7 @@
 
         <Button
             android:id="@+id/startButton"
+            android:textSize="@dimen/normalText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="44dp"
@@ -56,14 +57,18 @@
 
         <Button
             android:id="@+id/stopButton"
+            style="?attr/materialButtonOutlinedStyle"
+            app:strokeWidth = "2dp"
+            app:strokeColor = "@color/colorPrimary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="44dp"
             android:layout_marginEnd="44dp"
+            android:textStyle="bold"
+            android:textSize="@dimen/normalText"
             android:text="Выключить уведомления"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.544" />

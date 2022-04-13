@@ -108,4 +108,8 @@ class FirebaseRepository {
     fun getUserData(): LiveData<UserStorage> {
         return UserDataLiveData()
     }
+
+    fun getAllReport(): LiveData<List<Report>> {
+        return AllReportLiveData()
+    }
 }

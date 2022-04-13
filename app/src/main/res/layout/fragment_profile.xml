@@ -5,219 +5,312 @@
     android:id="@+id/etWater"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context=".ui.profile.ProfileFragment"
+    android:background="@color/ColorPrimaryOpacity">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/userDataCardView"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/settings_header_bloc"
         android:layout_width="match_parent"
-        android:layout_height="155dp"
-        android:layout_margin="16dp"
-        app:backgroundTint="@color/colorPrimary"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="10dp"
+        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutCardView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorPrimary">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/settings_header_bloc"
-            android:layout_width="match_parent"
-            android:layout_height="115dp"
-            android:background="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/settings_user_photo"
-                android:layout_width="@dimen/settings_user_photo_width"
-                android:layout_height="@dimen/settings_user_photo_height"
-                android:layout_marginStart="@dimen/horizontal_margin"
-                android:src="@drawable/ic_baseline_person_24"
-                app:civ_circle_background_color="@color/colorPrimary"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/userDataCardView"
+                android:layout_width="match_parent"
+                android:layout_height="155dp"
+                android:layout_margin="16dp"
+                android:backgroundTint="@color/colorPrimary"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/settings_full_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/horizontal_margin"
-                android:text="Имя Пользователя"
-                android:textColor="@color/white"
-                android:textSize="@dimen/normalText"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@id/settings_user_photo"
-                app:layout_constraintTop_toTopOf="@id/settings_user_photo" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:background="@color/colorPrimary">
 
-            <TextView
-                android:id="@+id/settings_status"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/horizontal_margin"
-                android:layout_marginTop="8dp"
-                android:text="Баланс"
-                android:textColor="@color/white"
-                android:textSize="@dimen/smallText"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@id/settings_user_photo"
-                app:layout_constraintTop_toBottomOf="@id/settings_full_name" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/settings_user_photo"
+                        android:layout_width="@dimen/settings_user_photo_width"
+                        android:layout_height="@dimen/settings_user_photo_height"
+                        android:layout_marginStart="@dimen/horizontal_margin"
+                        android:src="@drawable/ic_baseline_person_24"
+                        app:civ_circle_background_color="@color/colorPrimary"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
+                    <TextView
+                        android:id="@+id/profile_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/horizontal_margin"
+                        android:text="Имя Пользователя"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/bigText"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@id/settings_user_photo"
+                        app:layout_constraintTop_toTopOf="@id/settings_user_photo" />
+
+                    <TextView
+                        android:id="@+id/profile_balance"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/horizontal_margin"
+                        android:layout_marginTop="8dp"
+                        android:text="Баланс"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/smallText"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@id/settings_user_photo"
+                        app:layout_constraintTop_toBottomOf="@id/profile_name" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/settings_change_photo"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:backgroundTint="@color/white"
-                android:src="@drawable/ic_camera"
-                app:civ_circle_background_color="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/btExit"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="144dp"
-        android:text="Выйти"
-        android:textColor="@color/white"
-        android:textSize="23sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.857"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNormWater">
-
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floating_action_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_margin="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="30dp"
-            android:backgroundTint="@color/colorPrimary"
-            android:clickable="true"
-            android:contentDescription="Редактировать"
-            app:fabSize="normal"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/settings_change_photo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/photo"
+            app:civ_circle_background_color="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:pressedTranslationZ="40dp"
-            app:rippleColor="@color/white"
-            app:srcCompat="@drawable/ic_baseline_create_24"
-            app:tint="@color/white" />
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="3dp"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/settings_change_data"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/loon_icon"
+            app:civ_circle_background_color="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="80dp"
+            android:layout_marginBottom="3dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Имя"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/teal_700"
-        android:textSize="30sp"
-        android:textStyle="bold"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutBalanceView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/settings_header_bloc">
 
-    <EditText
-        android:id="@+id/etWeight"
-        android:layout_width="142dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="36dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Вес"
-        android:inputType="number"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/teal_700"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/etName"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/etName" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/balanceCardView"
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:backgroundTint="#F2B5D5E3"
+            app:cardCornerRadius="15dp"
+            android:layout_margin="16dp"
+            app:cardElevation="7dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/etNormWater"
-        android:layout_width="142dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="108dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Норма воды"
-        android:inputType="number"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/teal_700"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/etName"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/etName" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#C1005A83">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="216dp" />
+                <TextView
+                    android:id="@+id/tvBalanceTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/horizontal_margin"
+                    android:text="Баланс"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvWeight"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="right"
-        android:text="Вес: "
-        android:textColor="@color/colorPrimary"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/etName"
-        app:layout_constraintTop_toBottomOf="@+id/etName" />
+                <TextView
+                    android:id="@+id/tvBalance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Вам доступно: 0 баллов"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/smallText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBalanceTitle" />
 
-    <TextView
-        android:id="@+id/tvWeight2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="right"
-        android:text="Норма воды: "
-        android:textColor="@color/colorPrimary"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/etName"
-        app:layout_constraintTop_toBottomOf="@+id/etName" />
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="189dp" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Пополнить"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                    app:layout_constraintHorizontal_bias="0.41"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/moreDetails"
+                    style="?attr/materialButtonOutlinedStyle"
+                    app:strokeWidth = "2dp"
+                    app:strokeColor = "@color/colorPrimary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Подробнее"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.452"
+                    app:layout_constraintStart_toStartOf="@+id/guideline3" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+            android:id="@+id/btExit"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Выйти"
+            app:strokeWidth = "2dp"
+            app:strokeColor = "@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="@dimen/bigText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--<EditText-->
+<!--android:id="@+id/etName"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_marginTop="196dp"-->
+<!--android:ems="10"-->
+<!--android:gravity="center"-->
+<!--android:hint="Имя"-->
+<!--android:inputType="textPersonName"-->
+<!--android:textColor="@color/colorPrimary"-->
+<!--android:textColorHint="@color/teal_700"-->
+<!--android:textSize="30sp"-->
+<!--android:textStyle="bold"-->
+<!--app:layout_constraintEnd_toEndOf="parent"-->
+<!--app:layout_constraintHorizontal_bias="0.491"-->
+<!--app:layout_constraintStart_toStartOf="parent"-->
+<!--app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--<EditText-->
+<!--android:id="@+id/etWeight"-->
+<!--android:layout_width="142dp"-->
+<!--android:layout_height="50dp"-->
+<!--android:layout_marginTop="36dp"-->
+<!--android:ems="10"-->
+<!--android:gravity="center"-->
+<!--android:hint="Вес"-->
+<!--android:inputType="number"-->
+<!--android:textColor="@color/colorPrimary"-->
+<!--android:textColorHint="@color/teal_700"-->
+<!--android:textSize="20sp"-->
+<!--app:layout_constraintEnd_toEndOf="@+id/etName"-->
+<!--app:layout_constraintStart_toStartOf="@+id/guideline2"-->
+<!--app:layout_constraintTop_toBottomOf="@+id/etName" />-->
+
+<!--<EditText-->
+<!--android:id="@+id/etNormWater"-->
+<!--android:layout_width="142dp"-->
+<!--android:layout_height="50dp"-->
+<!--android:layout_marginTop="108dp"-->
+<!--android:ems="10"-->
+<!--android:gravity="center"-->
+<!--android:hint="Норма воды"-->
+<!--android:inputType="number"-->
+<!--android:textColor="@color/colorPrimary"-->
+<!--android:textColorHint="@color/teal_700"-->
+<!--android:textSize="20sp"-->
+<!--app:layout_constraintEnd_toEndOf="@+id/etName"-->
+<!--app:layout_constraintStart_toStartOf="@+id/guideline2"-->
+<!--app:layout_constraintTop_toBottomOf="@+id/etName" />-->
+
+<!--<androidx.constraintlayout.widget.Guideline-->
+<!--android:id="@+id/guideline2"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:orientation="vertical"-->
+<!--app:layout_constraintGuide_begin="216dp" />-->
+
+<!--<TextView-->
+<!--android:id="@+id/tvWeight"-->
+<!--android:layout_width="0dp"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_marginTop="44dp"-->
+<!--android:layout_marginEnd="16dp"-->
+<!--android:gravity="right"-->
+<!--android:text="Вес: "-->
+<!--android:textColor="@color/colorPrimary"-->
+<!--android:textSize="25sp"-->
+<!--app:layout_constraintEnd_toStartOf="@+id/guideline2"-->
+<!--app:layout_constraintStart_toStartOf="@+id/etName"-->
+<!--app:layout_constraintTop_toBottomOf="@+id/etName" />-->
+
+<!--<TextView-->
+<!--android:id="@+id/tvWeight2"-->
+<!--android:layout_width="0dp"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_marginTop="116dp"-->
+<!--android:layout_marginEnd="16dp"-->
+<!--android:gravity="right"-->
+<!--android:text="Норма воды: "-->
+<!--android:textColor="@color/colorPrimary"-->
+<!--android:textSize="25sp"-->
+<!--app:layout_constraintEnd_toStartOf="@+id/guideline2"-->
+<!--app:layout_constraintStart_toStartOf="@+id/etName"-->
+<!--app:layout_constraintTop_toBottomOf="@+id/etName" />-->
