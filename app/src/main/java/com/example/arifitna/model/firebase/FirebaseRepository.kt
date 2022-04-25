@@ -7,11 +7,14 @@ import com.example.arifitna.model.UserStorage
 import com.example.arifitna.util.Constants.CURRENT_ID
 import com.example.arifitna.util.Constants.ID_REPORT
 import com.example.arifitna.util.Constants.REF_DATABASE
+import com.example.arifitna.util.Constants.REF_STORAGE_ROOT
 import com.example.arifitna.util.Constants.USER_DATA_STORAGE
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class FirebaseRepository {
     private var AUTH: FirebaseAuth  = FirebaseAuth.getInstance()
@@ -22,7 +25,7 @@ class FirebaseRepository {
             .addOnSuccessListener {
                 CURRENT_ID = AUTH.currentUser?.uid.toString()
                 REF_DATABASE = FirebaseDatabase.getInstance().reference
-                Log.d("Value", "sign in")
+                REF_STORAGE_ROOT = FirebaseStorage.getInstance().reference
                 onSuccess()
             }
             .addOnFailureListener {
@@ -30,6 +33,17 @@ class FirebaseRepository {
             }
     }
 
+    fun secondAuth(){
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            CURRENT_ID = user.uid
+            REF_DATABASE = FirebaseDatabase.getInstance().reference
+            REF_STORAGE_ROOT = FirebaseStorage.getInstance().reference
+            Log.d("hhh", user.uid + user.email )
+        } else {
+            Log.d("hhh", "hhh")
+        }
+    }
     fun signOut() {
         AUTH.signOut()
         CURRENT_ID = ""
@@ -85,6 +99,7 @@ class FirebaseRepository {
     fun initBaseData(current_id: String) {
         CURRENT_ID = current_id
         REF_DATABASE = FirebaseDatabase.getInstance().reference
+        secondAuth()
     }
 
     fun getCurrentDateReport(): LiveData<Long> {
@@ -95,7 +110,7 @@ class FirebaseRepository {
         return LastReportLiveData()
     }
 
-    fun updateReport(report: Report) {
+    suspend fun updateReport(report: Report) {
         val reportNote = hashMapOf<String, Any>()
         reportNote["date"] =  report.date
         reportNote["water"] = report.water

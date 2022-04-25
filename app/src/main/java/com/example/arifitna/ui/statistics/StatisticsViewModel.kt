@@ -8,18 +8,16 @@ import com.example.arifitna.use_case.GetUserDataUseCase
 class StatisticsViewModel(
     private val allReportUseCase: AllReportUseCase,
     private val getUserDataUseCase: GetUserDataUseCase
-) : ViewModel(){
+) : ViewModel() {
 
-    val userData = getUserDataUseCase.execute()
-    val allReport = allReportUseCase.execute()
+    var userData = getUserDataUseCase.execute()
+    var allReport = allReportUseCase.execute()
 
-    fun updateUserData(){
-        getUserDataUseCase.execute()
-        Log.d("stat", userData.value.toString())
+    fun updateUserData() {
+        userData = getUserDataUseCase.execute()
     }
 
-    fun updateReports(){
-        allReportUseCase.execute()
-        Log.d("stat", allReport.value.toString())
+    fun updateReports() {
+        allReport = allReportUseCase.execute()
     }
 }

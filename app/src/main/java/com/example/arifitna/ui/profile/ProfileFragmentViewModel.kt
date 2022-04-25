@@ -9,7 +9,7 @@ import com.example.arifitna.use_case.AlarmUseCase
 import com.example.arifitna.use_case.GetPendingIntUseCase
 import com.example.arifitna.use_case.GetUserDataUseCase
 import com.example.arifitna.use_case.SignOutUseCase
-import com.example.focusstart.model.room.dto.PendingInt
+import com.example.arifitna.model.room.dto.PendingInt
 import kotlinx.coroutines.launch
 
 class ProfileFragmentViewModel(
@@ -21,16 +21,15 @@ class ProfileFragmentViewModel(
 
     private val _pendingIntList = MutableLiveData<List<PendingInt>>()
     var pendingIntList: LiveData<List<PendingInt>> = _pendingIntList
-    val userLiveData = getUserDataUseCase.execute()
+
+    var userDataLiveData = getUserDataUseCase.execute()
+    fun updateUserData() {
+        userDataLiveData = getUserDataUseCase.execute()
+    }
 
     fun signOut(){
         signOutUseCase.execute()
         deleteNotification()
-    }
-
-    fun updateUserData(){
-        getUserDataUseCase.execute()
-        Log.d("stat", userLiveData.value.toString())
     }
 
     fun loadPendingInt() {

@@ -25,7 +25,7 @@ class StatisticsAdapter: RecyclerView.Adapter<StatisticsHolder>() {
         var partWater = mListReport[position].water.toDouble()
         var procent = 0
         holder.dateReport.text = mListReport[position].date
-        holder.countWaterReport.text = "Выпито ${partWater.toInt()} мл из ${normWater.toInt()} мл"
+        holder.countWaterReport.text = "Выпито ${partWater.toLong()} мл из ${normWater.toLong()} мл"
         holder.prosentReport.text =
             if(partWater > 0){
                     if(partWater < normWater){

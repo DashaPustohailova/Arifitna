@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.arifitna.use_case.AlarmUseCase
 import com.example.arifitna.use_case.GetPendingIntUseCase
 import com.example.arifitna.use_case.SavePendingIntUseCase
-import com.example.focusstart.model.room.dto.PendingInt
+import com.example.arifitna.model.room.dto.PendingInt
 import kotlinx.coroutines.launch
 import java.util.concurrent.TimeUnit
 

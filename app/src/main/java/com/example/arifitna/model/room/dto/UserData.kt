@@ -11,5 +11,6 @@ data class UserData (
     @ColumnInfo val name: String = "name",
     @ColumnInfo val gender: String = "gender",
     @ColumnInfo val weight: Int = 0,
-    @ColumnInfo val normWater: Int = 0
+    @ColumnInfo val normWater: Int = 0,
+    @ColumnInfo val userUrl: String = ""
 ) : Serializable

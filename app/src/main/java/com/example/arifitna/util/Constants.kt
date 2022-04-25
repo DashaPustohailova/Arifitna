@@ -2,6 +2,7 @@ package com.example.arifitna.util
 
 import com.example.arifitna.model.UserStorage
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.storage.StorageReference
 
 object Constants {
     //alarm
@@ -14,4 +15,5 @@ object Constants {
     var CURRENT_ID: String = ""
     var REF_DATABASE: DatabaseReference?= null
     var USER_DATA_STORAGE = UserStorage()
+    var REF_STORAGE_ROOT :StorageReference ?= null
 }

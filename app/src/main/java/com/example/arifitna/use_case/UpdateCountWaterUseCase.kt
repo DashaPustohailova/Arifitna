@@ -6,7 +6,7 @@ import com.example.arifitna.model.firebase.FirebaseRepository
 class UpdateCountWaterUseCase(
     private val repository: FirebaseRepository
 ) {
-    fun execute(report: Report) {
+    suspend fun execute(report: Report) {
         repository.updateReport(report = report)
     }
 }

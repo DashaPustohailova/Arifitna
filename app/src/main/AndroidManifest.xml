@@ -4,7 +4,10 @@
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.camera"
+        android:required="false"></uses-feature>
     <application
         android:name=".di.app"
         android:allowBackup="true"
@@ -15,8 +18,7 @@
         android:theme="@style/Theme.Arifitna">
         <activity
             android:name=".ui.signIn.SignInActivity"
-            android:exported="true"
-            android:noHistory="true">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -24,12 +26,11 @@
         </activity>
         <activity
             android:name=".ui.MainActivity"
-            android:exported="false"
-            android:noHistory="true">
+            android:exported="false">
         </activity>
-
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat"/>
         <service android:name=".service.MyService" />
-
         <receiver android:name=".receiver.AlarmReceiver" />
     </application>
 

@@ -5,7 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.arifitna.model.room.dto.UserData
-import com.example.focusstart.model.room.dto.PendingInt
+import com.example.arifitna.model.room.dto.PendingInt
 
 @Dao
 interface AppRoomDao {

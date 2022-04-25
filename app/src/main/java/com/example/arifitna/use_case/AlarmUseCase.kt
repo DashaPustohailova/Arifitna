@@ -8,11 +8,8 @@ import android.util.Log
 import com.example.arifitna.receiver.AlarmReceiver
 import com.example.arifitna.util.Constants
 import com.example.arifitna.util.RandomIntUtil
-import com.example.focusstart.model.room.dto.PendingInt
+import com.example.arifitna.model.room.dto.PendingInt
 import java.util.concurrent.TimeUnit
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class AlarmUseCase(
     private val context: Context,

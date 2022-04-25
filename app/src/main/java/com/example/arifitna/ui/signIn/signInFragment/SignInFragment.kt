@@ -23,7 +23,7 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
     private val viewModel by viewModel<SignInViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        if(sharedPreferences.getBoolean("INIT", true)) toLk()
+        if (sharedPreferences.getBoolean("INIT", true)) toLk()
         setupOnClickListener()
         setupObservers()
         super.onViewCreated(view, savedInstanceState)
@@ -49,11 +49,11 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
     }
 
     private fun nowFragment(nowFragment: String?) {
-        when(nowFragment){
-            "signIn"->{
+        when (nowFragment) {
+            "signIn" -> {
 
             }
-            "lkFragment"->{
+            "lkFragment" -> {
                 sharedPreferencesEditor.apply {
                     putBoolean("INIT", true)
                     putString("CURRENT_ID", CURRENT_ID)

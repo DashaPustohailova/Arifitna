@@ -1,5 +1,6 @@
 package com.example.arifitna.model.firebase
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.example.arifitna.model.UserStorage
 import com.example.arifitna.util.Constants.CURRENT_ID
@@ -15,6 +16,7 @@ class UserDataLiveData: LiveData<UserStorage>() {
     private val listener = object : ValueEventListener{
         override fun onDataChange(snapshot: DataSnapshot) {
             value = snapshot.getValue(UserStorage::class.java) ?: UserStorage()
+            Log.d("UserData", value.toString())
         }
 
         override fun onCancelled(error: DatabaseError) {

@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#005A83</color>
     <color name="ColorPrimaryOpacity">#16005A83</color>
+    <color name="startColorGradient">#8000AFFF</color>
+    <color name="text">#0075A3</color>
 </resources>

@@ -11,6 +11,11 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
+        jcenter() {
+            content {
+                includeModule("com.theartofdev.edmodo", "android-image-cropper")
+            }
+        }
     }
 }
 rootProject.name = "Arifitna"

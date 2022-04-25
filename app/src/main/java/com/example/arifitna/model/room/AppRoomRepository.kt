@@ -1,6 +1,6 @@
 package com.example.arifitna.model.room
 
-import com.example.focusstart.model.room.dto.PendingInt
+import com.example.arifitna.model.room.dto.PendingInt
 
 class AppRoomRepository (private val appRoomDao: AppRoomDao) {
 
