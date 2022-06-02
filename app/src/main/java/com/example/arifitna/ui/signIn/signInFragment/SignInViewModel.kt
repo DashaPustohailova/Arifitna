@@ -4,7 +4,9 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.arifitna.use_case.InitDatabaseUseCase
+import kotlinx.coroutines.launch
 
 class SignInViewModel(
     private val initDatabaseUseCase: InitDatabaseUseCase
@@ -22,18 +24,21 @@ class SignInViewModel(
         onSuccess: () -> Unit,
         onFail: () -> Unit
     ) {
-        initDatabaseUseCase.execute(
-            inputEmail = inputEmail,
-            inputPassword = inputPassword,
-            onSuccess = {
-                onSuccess()
-            },
-            onFail = {
-                _signInMutableLiveData.value = "Проблемы при авторизации"
-                onFail()
-            }
+        viewModelScope.launch {
+            initDatabaseUseCase.execute(
+                inputEmail = inputEmail,
+                inputPassword = inputPassword,
+                onSuccess = {
+                    onSuccess()
+                },
+                onFail = {
+                    _signInMutableLiveData.value = "Проблемы при авторизации"
+                    onFail()
+                }
 
-        )
+            )
+        }
+
     }
 
 
@@ -44,11 +49,9 @@ class SignInViewModel(
                 inputPassword = inputPassword,
                 onSuccess = {
                     _nowFragment.value = "lkFragment"
-                    Log.d("Test", "SIGN IN")
                 },
                 onFail = {
                     _nowFragment.value = "reqistration"
-                    Log.d("Test", "fail")
                 }
             )
         } else {

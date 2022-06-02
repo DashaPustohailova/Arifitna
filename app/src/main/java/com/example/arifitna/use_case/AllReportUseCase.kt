@@ -7,7 +7,7 @@ import com.example.arifitna.model.firebase.FirebaseRepository
 class AllReportUseCase(
     private val repository: FirebaseRepository
 ) {
-    fun execute(): LiveData<List<Report>>{
+    fun execute(): LiveData<List<Report>> {
         return repository.getAllReport()
     }
 }

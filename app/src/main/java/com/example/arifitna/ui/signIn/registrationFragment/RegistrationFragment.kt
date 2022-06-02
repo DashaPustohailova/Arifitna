@@ -2,9 +2,12 @@ package com.example.arifitna.ui.signIn.registrationFragment
 
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.Bundle
 import android.service.autofill.UserData
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
@@ -28,15 +31,53 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupOnClickListener()
         setupObservers()
+        getScreenOrientation()
+        setupSpinner()
         super.onViewCreated(view, savedInstanceState)
     }
 
+    private fun getScreenOrientation(){
+        if(resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+
+        }
+        else
+        {
+
+        }
+    }
     private fun setupObservers() {
         observe(viewModel.registrationResult, ::registrationResult)
     }
+    private fun setupSpinner() {
+        var item = arrayListOf("Женский","Мужской")
+        var adapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_item,
+            item
+        )
+
+        spinnerCurrency.adapter = adapter
+        spinnerCurrency.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                p0: AdapterView<*>?,
+                p1: View?,
+                position: Int,
+                p3: Long
+            ) {
+                viewModel.gender = if (position == 0) "Woman" else "Man"
+                Toast.makeText(requireContext(), viewModel.gender, Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+
+        }
+    }
+
 
     private fun registrationResult(result: String?) {
-        when(result){
+        when (result) {
             "success" -> {
                 sharedPreferencesEditor.apply {
                     putBoolean("INIT", true)
@@ -63,9 +104,10 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
             val secondPassword = etPassword2.text.toString()
             val name = etName.text.toString()
             val weight = etWeight2.text.toString()
-            if(!email.isNullOrEmpty() && !password.isNullOrEmpty()
+            if (!email.isNullOrEmpty() && !password.isNullOrEmpty()
                 && !secondPassword.isNullOrEmpty() && !name.isNullOrEmpty()
-                && weight != null) {
+                && weight != null
+            ) {
                 viewModel.registration(
                     inputEmail = email,
                     inputPassword = password,
@@ -73,11 +115,10 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
                     userData = UserStorage(
                         name = name,
                         weight = weight.toInt(),
-                        gender = "Woman"
+                        gender = viewModel.gender
                     )
                 )
-            }
-            else{
+            } else {
                 Toast.makeText(requireContext(), "Ошибка регистрации", Toast.LENGTH_SHORT).show()
             }
         }

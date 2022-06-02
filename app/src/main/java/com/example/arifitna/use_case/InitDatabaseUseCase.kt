@@ -9,11 +9,16 @@ import com.example.arifitna.util.Constants.REF_DATABASE
 class InitDatabaseUseCase(
     private val repository: FirebaseRepository
 ) {
-    fun execute(inputEmail: String, inputPassword: String, onSuccess: () -> Unit, onFail: () -> Unit)  {
+    suspend fun execute(
+        inputEmail: String,
+        inputPassword: String,
+        onSuccess: () -> Unit,
+        onFail: () -> Unit
+    ) {
         repository.connectToDatabase(
             inputEmail = inputEmail,
             inputPassword = inputPassword,
-            onSuccess  = {
+            onSuccess = {
                 onSuccess()
             },
             onFail = {
@@ -22,7 +27,14 @@ class InitDatabaseUseCase(
             }
         )
     }
-    fun registration(inputEmail: String, inputPassword: String, userData: UserStorage, onSuccess: () -> Unit, onFail: () -> Unit) {
+
+    suspend fun registration(
+        inputEmail: String,
+        inputPassword: String,
+        userData: UserStorage,
+        onSuccess: () -> Unit,
+        onFail: () -> Unit
+    ) {
         repository.registration(
             inputEmail = inputEmail,
             inputPassword = inputPassword,

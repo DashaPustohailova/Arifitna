@@ -15,11 +15,11 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.coroutines.CoroutineContext
 
-class MyService : Service(),  CoroutineScope {
+class MyService : Service(), CoroutineScope {
     val TAG = "MyService"
     lateinit var notificationManager: NotificationManagerCompat
     lateinit var notification: Notification
-    val CHANNEL_ID =  "channelId"
+    val CHANNEL_ID = "channelId"
     val CHANNEL_NAME = "channelName"
     val NOTIFICATION_ID = 888
 
@@ -35,10 +35,12 @@ class MyService : Service(),  CoroutineScope {
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.IO
 
-    fun createNotificationChannel(){
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            val channel = NotificationChannel(CHANNEL_ID, CHANNEL_NAME,
-                NotificationManager.IMPORTANCE_DEFAULT)
+    fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                CHANNEL_ID, CHANNEL_NAME,
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
             val manager =
                 getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             manager.createNotificationChannel(channel)
@@ -62,6 +64,7 @@ class MyService : Service(),  CoroutineScope {
         notificationManager = NotificationManagerCompat.from(this)
         notificationManager.notify(NOTIFICATION_ID, notification)
     }
+
     override fun onBind(p0: Intent?): IBinder? = null
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -76,20 +79,20 @@ class MyService : Service(),  CoroutineScope {
         var currentDate = sdf.format(Date()) //Час в дне (0-23)
 
         launch(coroutineContext) {
-            while(isRunning  && currentDate > "13" ) {
-                    createNotification()
-                    delay(60000) // 1 минута
-                    currentDate = sdf.format(Date())
-                }
+            while (isRunning && currentDate > "13") {
+                createNotification()
+                delay(60000) // 1 минута
+                currentDate = sdf.format(Date())
             }
+        }
         return START_STICKY
     }
 
-    companion object{
+    companion object {
         private lateinit var instance: MyService
         var isRunning = false
 
-        fun stopService(){
+        fun stopService() {
             Log.d("MyService", "Service is stopping...")
             isRunning = false
             instance.stopSelf()

@@ -9,4 +9,5 @@ class UpdateCountWaterUseCase(
     suspend fun execute(report: Report) {
         repository.updateReport(report = report)
     }
+
 }

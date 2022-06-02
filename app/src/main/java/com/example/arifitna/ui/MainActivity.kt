@@ -30,8 +30,15 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         mNavController = navHostFragment.navController
     }
 
-    private fun initAppBarConfiguration(){
-        appBarConfiguration = AppBarConfiguration(setOf(R.id.startFragment, R.id.settingsFragment, R.id.statisticsFragment, R.id.profileFragment), drawer_layout)
+    private fun initAppBarConfiguration() {
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.startFragment,
+                R.id.settingsFragment,
+                R.id.statisticsFragment,
+                R.id.profileFragment
+            ), drawer_layout
+        )
         navigationView.setupWithNavController(mNavController)
         setupActionBarWithNavController(mNavController, appBarConfiguration)
     }

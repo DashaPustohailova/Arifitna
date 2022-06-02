@@ -5,7 +5,7 @@ import com.example.arifitna.model.firebase.FirebaseRepository
 class CreateReportUseCase(
     private val repository: FirebaseRepository
 ) {
-    fun execute()  {
+    fun execute() {
         return repository.createReport()
     }
 }

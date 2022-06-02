@@ -20,5 +20,5 @@
         android:singleLine="false"
         android:textSize="@dimen/normalText"
         android:gravity="center"
-        android:text="Подробности о бонусной программе" />
+        android:text="Чтобы получить бонусы - выпивайте норму воды в сутки (за каждый день + 50 бонусов)" />
 </LinearLayout>

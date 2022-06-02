@@ -13,10 +13,10 @@ import kotlinx.coroutines.launch
 import java.util.concurrent.TimeUnit
 
 class SettingsViewModel(
-private val alarmUseCase: AlarmUseCase,
-private val getPendingIntUseCase: GetPendingIntUseCase,
-private val savePendingIntUseCase: SavePendingIntUseCase
-) : ViewModel(){
+    private val alarmUseCase: AlarmUseCase,
+    private val getPendingIntUseCase: GetPendingIntUseCase,
+    private val savePendingIntUseCase: SavePendingIntUseCase
+) : ViewModel() {
 
     private val _pendingIntList = MutableLiveData<List<PendingInt>>()
     var pendingIntList: LiveData<List<PendingInt>> = _pendingIntList
@@ -29,7 +29,10 @@ private val savePendingIntUseCase: SavePendingIntUseCase
         viewModelScope.launch {
             getPendingIntUseCase.deletePendingInt()
             _pendingIntList.value = alarmUseCase.loadPendingInt()
-            Log.d("Test", "deleteNotification viewModel after delete" + _pendingIntList.value.toString())
+            Log.d(
+                "Test",
+                "deleteNotification viewModel after delete" + _pendingIntList.value.toString()
+            )
         }
     }
 
@@ -43,13 +46,12 @@ private val savePendingIntUseCase: SavePendingIntUseCase
                 intervalTime,
                 count
             )
-            for(id in list){
+            for (id in list) {
                 savePendingIntUseCase.save(id)
             }
             _pendingIntList.value = getPendingIntUseCase.getPendingInt()
             Log.d("Test", _pendingIntList.toString())
         }
-
 
 
     }

@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/img0383"
     tools:context=".ui.signIn.signInFragment.SignInFragment">
 
     <EditText
         android:id="@+id/input_email"
-        android:layout_width="@dimen/btn_with"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="216dp"
+        android:layout_marginTop="240dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:gravity="center"
         android:hint="@string/email"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/teal_700"
-        android:backgroundTint="@color/white"
-        android:textCursorDrawable="@color/white"
         android:inputType="textEmailAddress"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textCursorDrawable="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/input_password"
-        android:layout_width="@dimen/btn_with"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/teal_700"
-        android:backgroundTint="@color/white"
-        android:textCursorDrawable="@color/white"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:gravity="center"
         android:hint="@string/password"
         android:inputType="textPassword"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textCursorDrawable="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/input_email"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/input_email"
@@ -40,24 +43,30 @@
 
     <Button
         android:id="@+id/btIn"
-        android:layout_width="@dimen/btn_with"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Войти"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/input_password"
-        app:layout_constraintHorizontal_bias="0.541"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/input_password"
         app:layout_constraintTop_toBottomOf="@+id/input_password" />
 
     <Button
         android:id="@+id/btRegistrate"
-        android:layout_width="@dimen/btn_with"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Регистрация"
-        android:textColor="@color/white"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/btIn"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btIn"
-        app:layout_constraintTop_toBottomOf="@+id/btIn" />
+        app:layout_constraintTop_toBottomOf="@+id/btIn"
+        app:strokeColor="@color/colorPrimary" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

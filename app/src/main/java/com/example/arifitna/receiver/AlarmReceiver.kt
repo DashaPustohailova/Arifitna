@@ -23,16 +23,18 @@ class AlarmReceiver() : BroadcastReceiver() {
 
     lateinit var notificationManager: NotificationManagerCompat
     lateinit var notification: Notification
-    val CHANNEL_ID =  "channelId"
+    val CHANNEL_ID = "channelId"
     val CHANNEL_NAME = "channelName"
     val NOTIFICATION_ID = 888
 
     private val alarmUseCase: AlarmUseCase by inject<AlarmUseCase>(AlarmUseCase::class.java)
 
     override fun onReceive(context: Context, intent: Intent) {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            val channel = NotificationChannel(CHANNEL_ID, CHANNEL_NAME,
-                NotificationManager.IMPORTANCE_DEFAULT)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                CHANNEL_ID, CHANNEL_NAME,
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
             val manager =
                 context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             manager.createNotificationChannel(channel)
@@ -42,11 +44,11 @@ class AlarmReceiver() : BroadcastReceiver() {
         when (intent.action) {
             Constants.ACTION_SET_EXACT_ALARM -> {
                 createNotification(context)
-}
+            }
             Constants.ACTION_SET_REPETITIVE_ALARM -> {
                 setRepetitiveAlarm()
                 createNotification(context)
-}
+            }
         }
     }
 

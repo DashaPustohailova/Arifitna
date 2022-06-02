@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.signIn.registrationFragment.RegistrationFragment"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:background="@drawable/img0383"
+    tools:context=".ui.signIn.registrationFragment.RegistrationFragment">
 
     <TextView
         android:id="@+id/textView2"
@@ -18,55 +19,69 @@
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/spenner"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="@dimen/btn_with"
+    <!--    <com.google.android.material.textfield.TextInputLayout-->
+    <!--        android:id="@+id/spenner"-->
+    <!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"-->
+    <!--        android:layout_width="@dimen/btn_with"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:hint="Ваш пол"-->
+    <!--        android:textColor="@color/colorPrimary"-->
+    <!--        android:textColorHint="@color/purple_700"-->
+    <!--        android:textCursorDrawable="@color/white"-->
+    <!--        app:boxStrokeColor="@color/white"-->
+    <!--        android:outlineAmbientShadowColor="@color/white"-->
+    <!--        app:counterOverflowTextColor="@color/white"-->
+    <!--        app:placeholderTextColor="@color/colorPrimary"-->
+    <!--        app:hintTextColor="@color/teal_700"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/etName"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/etName"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/etName">-->
+
+    <!--        <AutoCompleteTextView-->
+    <!--            android:id="@+id/autoCompleteTextView"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:textColor="@color/colorPrimary"-->
+    <!--            android:textColorHint="@color/teal_700"-->
+    <!--            android:outlineSpotShadowColor="@color/white"-->
+    <!--            android:textCursorDrawable="@color/white"-->
+    <!--            android:paddingTop="16dp"-->
+    <!--            android:paddingBottom="16dp"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:inputType="none"/>-->
+    <!--        -->
+    <!--        -->
+
+
+    <!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+    <Spinner
+        android:id="@+id/spinnerCurrency"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:hint="Ваш пол"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/purple_700"
-        android:textCursorDrawable="@color/white"
-        app:boxStrokeColor="@color/white"
-        android:outlineAmbientShadowColor="@color/white"
-        app:counterOverflowTextColor="@color/white"
-        app:placeholderTextColor="@color/colorPrimary"
-        app:hintTextColor="@color/teal_700"
+        android:layout_marginTop="8dp"
+        android:autofillHints="Пол"
         app:layout_constraintEnd_toEndOf="@+id/etName"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/etName"
-        app:layout_constraintTop_toBottomOf="@+id/etName">
-
-        <AutoCompleteTextView
-            android:id="@+id/autoCompleteTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/teal_700"
-            android:outlineSpotShadowColor="@color/white"
-            android:textCursorDrawable="@color/white"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:layout_weight="1"
-            android:inputType="none"/>
-
-
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
 
     <EditText
         android:id="@+id/input_email"
-        android:layout_width="@dimen/btn_with"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/white"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/teal_700"
-        android:backgroundTint="@color/white"
-        android:textCursorDrawable="@color/white"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textColorLink="@color/colorPrimary"
+        android:textCursorDrawable="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/etWeight2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/etWeight2"
@@ -74,53 +89,65 @@
 
     <EditText
         android:id="@+id/etPassword"
-        android:layout_width="@dimen/btn_with"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/white"
         android:ems="10"
         android:hint="Введите пароль"
         android:inputType="textPassword"
         android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/teal_700"
-        android:backgroundTint="@color/white"
-        android:textCursorDrawable="@color/white"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textColorLink="@color/colorPrimary"
+        android:textCursorDrawable="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/input_email"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/input_email"
         app:layout_constraintTop_toBottomOf="@+id/input_email" />
 
     <EditText
         android:id="@+id/etPassword2"
-        android:layout_width="@dimen/btn_with"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/teal_700"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/white"
-        android:textCursorDrawable="@color/white"
+        android:ems="10"
         android:hint="Повторите пароль"
         android:inputType="textPassword"
+        android:textColor="@color/colorPrimary"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textColorLink="@color/colorPrimary"
+        android:textCursorDrawable="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/etPassword"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/etPassword"
         app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
     <EditText
         android:id="@+id/etWeight2"
-        android:layout_width="@dimen/btn_with"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:hint="Вес (кг)"
-        android:textColor="@color/white"
-        android:textColorHint="@color/teal_700"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/white"
-        android:textCursorDrawable="@color/white"
+        android:hint="Вес (кг)"
         android:inputType="numberDecimal"
+        android:textColor="@color/colorPrimary"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textColorLink="@color/colorPrimary"
+        android:textCursorDrawable="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/etName"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/etName"
-        app:layout_constraintTop_toBottomOf="@+id/spenner" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCurrency" />
 
     <Button
         android:id="@+id/btRegistrate"
-        android:layout_width="@dimen/btn_with"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Регистрация"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/etPassword2"
@@ -130,19 +157,22 @@
 
     <EditText
         android:id="@+id/etName"
-        android:layout_width="@dimen/btn_with"
+        android:layout_width="250dp"
         android:layout_height="46dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/white"
         android:ems="10"
         android:hint="Имя"
         android:inputType="textPersonName"
         android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/teal_700"
-        android:backgroundTint="@color/white"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textColorLink="@color/colorPrimary"
         android:textCursorDrawable="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

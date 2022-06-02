@@ -8,7 +8,7 @@ import com.example.arifitna.R
 import com.example.arifitna.model.Report
 import com.example.arifitna.model.UserStorage
 
-class StatisticsAdapter: RecyclerView.Adapter<StatisticsHolder>() {
+class StatisticsAdapter : RecyclerView.Adapter<StatisticsHolder>() {
 
     private var mListReport = emptyList<Report>()
     var userData = UserStorage()
@@ -27,16 +27,14 @@ class StatisticsAdapter: RecyclerView.Adapter<StatisticsHolder>() {
         holder.dateReport.text = mListReport[position].date
         holder.countWaterReport.text = "Выпито ${partWater.toLong()} мл из ${normWater.toLong()} мл"
         holder.prosentReport.text =
-            if(partWater > 0){
-                    if(partWater < normWater){
-                        procent = Math.round(partWater/(userData.normWater.toDouble()/100)).toInt()
-                    }
-                    else{
-                        procent = 100
-                    }
+            if (partWater > 0) {
+                if (partWater < normWater) {
+                    procent = Math.round(partWater / (userData.normWater.toDouble() / 100)).toInt()
+                } else {
+                    procent = 100
+                }
                 procent.toString() + "%"
-            }
-            else
+            } else
                 "0%"
     }
 

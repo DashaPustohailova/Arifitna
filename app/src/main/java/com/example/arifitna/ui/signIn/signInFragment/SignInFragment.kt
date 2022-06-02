@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.arifitna.R
@@ -46,6 +47,11 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
 
     private fun setupObservers() {
         observe(viewModel.nowFragment, ::nowFragment)
+        observe(viewModel.signInLiveData, ::updateSignIn)
+    }
+
+    private fun updateSignIn(s: String?) {
+        Toast.makeText(requireContext(), s?:"", Toast.LENGTH_SHORT).show()
     }
 
     private fun nowFragment(nowFragment: String?) {

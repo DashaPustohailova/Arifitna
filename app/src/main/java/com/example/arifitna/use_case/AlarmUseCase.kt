@@ -21,7 +21,11 @@ class AlarmUseCase(
     private var listRandomInt = mutableListOf<Int>()
 
 
-    fun setRepetitiveAlarm(timeInMillis: Long, intervalTime: Long = 1L, count: Long = 1L) : List<Int>{
+    fun setRepetitiveAlarm(
+        timeInMillis: Long,
+        intervalTime: Long = 1L,
+        count: Long = 1L
+    ): List<Int> {
         time = timeInMillis
         if (count == 1L) {
             setAlarm(
@@ -100,18 +104,18 @@ class AlarmUseCase(
         )
     }
 
-    private fun getPendingIntentToCancel(intent: Intent, randomInt: Int) : PendingIntent  =
-          PendingIntent.getBroadcast(
-        context,
-        randomInt,
-        intent,
-        PendingIntent.FLAG_IMMUTABLE
-    )
+    private fun getPendingIntentToCancel(intent: Intent, randomInt: Int): PendingIntent =
+        PendingIntent.getBroadcast(
+            context,
+            randomInt,
+            intent,
+            PendingIntent.FLAG_IMMUTABLE
+        )
 
     suspend fun loadPendingInt() = getPendingIntUseCase.getPendingInt()
 
-    suspend  fun deleteAll(){
-       getPendingIntUseCase.deletePendingInt()
+    suspend fun deleteAll() {
+        getPendingIntUseCase.deletePendingInt()
     }
 
 }

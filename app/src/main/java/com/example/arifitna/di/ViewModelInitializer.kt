@@ -12,10 +12,10 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val viewModelModule = module {
-    viewModel<StartFragmentViewModel> { StartFragmentViewModel(get(), get(), get(), get(), get(), get()) }
+    viewModel<StartFragmentViewModel> { StartFragmentViewModel(get(), get(), get(), get(), get(), get(), get(), get(), get()) }
     viewModel<SettingsViewModel> { SettingsViewModel(get(), get(), get()) }
     viewModel<SignInViewModel> { SignInViewModel(get()) }
-    viewModel<ProfileFragmentViewModel>{ ProfileFragmentViewModel(get(), get(), get(), get()) }
+    viewModel<ProfileFragmentViewModel>{ ProfileFragmentViewModel(get(), get(), get(), get(), get(), get(), get(), get(), get()) }
     viewModel<RegistrationFragmentViewModel>{ RegistrationFragmentViewModel(get()) }
     viewModel<StatisticsViewModel>{ StatisticsViewModel(get(), get()) }
 }

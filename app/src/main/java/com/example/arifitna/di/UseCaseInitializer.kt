@@ -46,6 +46,29 @@ val useCaseModule = module{
     factory<AllReportUseCase> {
         AllReportUseCase(get())
     }
+
+    factory<AddBonusUseCase> {
+        AddBonusUseCase(get())
+    }
+
+    factory<GetAllDrinksUseCase> {
+        GetAllDrinksUseCase(get())
+    }
+
+    factory<UpdatePersonalDataUseCase> {
+        UpdatePersonalDataUseCase(get())
+    }
+    factory<GetUserPermission> {
+        GetUserPermission(get())
+    }
+
+    factory<GetPrice> {
+        GetPrice(get())
+    }
+    factory<UpdatePermissionsUseCase> {
+        UpdatePermissionsUseCase(get())
+    }
+
     single<AlarmUseCase> {
         AlarmUseCase(get(),get())
     }

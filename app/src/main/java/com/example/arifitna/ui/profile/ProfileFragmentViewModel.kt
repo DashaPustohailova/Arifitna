@@ -5,30 +5,68 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.arifitna.use_case.AlarmUseCase
-import com.example.arifitna.use_case.GetPendingIntUseCase
-import com.example.arifitna.use_case.GetUserDataUseCase
-import com.example.arifitna.use_case.SignOutUseCase
+import com.example.arifitna.model.Report
+import com.example.arifitna.model.UserStorage
 import com.example.arifitna.model.room.dto.PendingInt
+import com.example.arifitna.use_case.*
+import kotlinx.android.synthetic.main.fragment_start.*
 import kotlinx.coroutines.launch
+import java.util.*
 
 class ProfileFragmentViewModel(
     private val signOutUseCase: SignOutUseCase,
     private val alarmUseCase: AlarmUseCase,
     private val getPendingIntUseCase: GetPendingIntUseCase,
-    private val getUserDataUseCase: GetUserDataUseCase
-): ViewModel() {
+    private val getUserDataUseCase: GetUserDataUseCase,
+    private val updatePersonalDataUseCase: UpdatePersonalDataUseCase,
+    private val getUserPermission: GetUserPermission,
+    private val getPrice: GetPrice,
+    private val addBonusUseCase: AddBonusUseCase,
+    private val updatePermissionsUseCase: UpdatePermissionsUseCase
+) : ViewModel() {
+
 
     private val _pendingIntList = MutableLiveData<List<PendingInt>>()
     var pendingIntList: LiveData<List<PendingInt>> = _pendingIntList
+    var message: MutableLiveData<String> = MutableLiveData<String>("")
 
     var userDataLiveData = getUserDataUseCase.execute()
-    fun updateUserData() {
-        userDataLiveData = getUserDataUseCase.execute()
+    var userPermission = getUserPermission.execute()
+    var price = getPrice.execute()
+
+
+    fun pay(price: Int){
+        var result = userDataLiveData.value?.let {
+            it.bonus - price
+        }
+        viewModelScope.launch {
+            addBonusUseCase.execute(result?:0)
+        }
     }
 
-    fun signOut(){
-        signOutUseCase.execute()
+    fun payToPermissionSuccess(permission: String){
+        viewModelScope.launch {
+            updatePermissionsUseCase.execute(permission)
+        }
+    }
+
+    fun updateUserData() {
+        userPermission = getUserPermission.execute()
+    }
+
+    fun updateUserPermission() {
+        userPermission = getUserPermission.execute()
+
+
+    }
+    fun updatePrice() {
+        price = getPrice.execute()
+    }
+
+    fun signOut() {
+        viewModelScope.launch {
+            signOutUseCase.execute()
+        }
         deleteNotification()
     }
 
@@ -36,18 +74,30 @@ class ProfileFragmentViewModel(
         viewModelScope.launch {
             _pendingIntList.value = alarmUseCase.loadPendingInt()
         }
-        Log.d("Test", pendingIntList.toString())
     }
 
     fun deleteNotification() {
         pendingIntList.value?.let {
-            Log.d("Test", "deleteNotification viewModel" + it)
             alarmUseCase.deleteNotification(it)
         }
         viewModelScope.launch {
             getPendingIntUseCase.deletePendingInt()
             _pendingIntList.value = alarmUseCase.loadPendingInt()
-            Log.d("Test", "deleteNotification viewModel after delete" + _pendingIntList.value.toString())
+        }
+    }
+
+    fun updatePersonalData(name: String, weight: String) {
+        viewModelScope.launch {
+            updatePersonalDataUseCase.execute(
+                userDataLiveData.value?: UserStorage(),
+                name,
+                weight,
+                {
+//                    message.value = "Данные обновлены"
+                },
+                {
+                    message.value = "Ошибка сохранения данных"
+                })
         }
     }
 }
